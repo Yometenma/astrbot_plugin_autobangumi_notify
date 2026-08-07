@@ -38,14 +38,9 @@
 
 ### 1. 安装
 
-将插件文件夹放入 AstrBot 插件目录：
-
 ```bash
-# Docker 部署
-<挂载目录>/data/plugins/astrbot_plugin_autobangumi_notify/
-
-# 源码部署
-<AstrBot 根目录>/data/plugins/astrbot_plugin_autobangumi_notify/
+cd <AstrBot 数据目录>/data/plugins
+git clone https://github.com/Yometenma/astrbot_plugin_autobangumi_notify.git
 ```
 
 重启 AstrBot 或在 WebUI 插件管理中启用。
