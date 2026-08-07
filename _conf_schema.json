@@ -1,0 +1,63 @@
+{
+  "targets": {
+    "description": "推送目标列表（推荐，配置后忽略 target_qq）",
+    "type": "list",
+    "default": [],
+    "hint": "每项格式: {\"type\": \"friend|group\", \"id\": \"QQ号或群号\"}。示例: [{\"type\":\"friend\",\"id\":\"3453259714\"},{\"type\":\"group\",\"id\":\"123456789\"}]",
+    "obvious_hint": true
+  },
+  "target_qq": {
+    "description": "接收通知的 QQ 用户 ID（旧版配置，建议用 targets 代替）",
+    "type": "string",
+    "default": "",
+    "hint": "填写后自动转为 friend 类型目标。如果同时配置了 targets，此项会被忽略"
+  },
+  "platform_id": {
+    "description": "消息平台 ID",
+    "type": "string",
+    "default": "aiocqhttp",
+    "hint": "NapCat/OneBot 为 aiocqhttp，其它平台按实际填写"
+  },
+  "use_llm": {
+    "description": "是否使用 LLM 转述通知",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后 LLM 将以 AstrBot 自身人格转述通知；关闭则直接发送原始通知文本（带 [AutoBangumi] 前缀）"
+  },
+  "webhook_path": {
+    "description": "Webhook 接收路径",
+    "type": "string",
+    "default": "/api/autobangumi/notify",
+    "hint": "AutoBangumi 通知填写的完整 URL 为: http://<服务器IP>:6185<此路径>"
+  },
+  "llm_system_prompt": {
+    "description": "LLM 转述任务指令（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "告诉 LLM 如何转述通知，如「请用简洁的口吻转述」「请用卖萌的语气转述」。留空则 LLM 以 AstrBot 自身人格自由转述。注意：不要在此填写人格定义，人格由 AstrBot 自身配置决定"
+  },
+  "enable_dedup": {
+    "description": "是否开启通知去重",
+    "type": "bool",
+    "default": true,
+    "hint": "开启后同一事件在时间窗口内不重复推送，防止重复通知轰炸"
+  },
+  "dedup_window_seconds": {
+    "description": "去重时间窗口（秒）",
+    "type": "number",
+    "default": 300,
+    "hint": "默认 300 秒（5 分钟）。在此窗口内相同内容只推送一次"
+  },
+  "max_retries": {
+    "description": "消息发送最大重试次数",
+    "type": "number",
+    "default": 3,
+    "hint": "发送失败后的重试次数，使用指数退避策略（每次延迟翻倍）"
+  },
+  "retry_delay_seconds": {
+    "description": "重试基础延迟（秒）",
+    "type": "number",
+    "default": 2.0,
+    "hint": "首次重试等待 2 秒，之后每次翻倍（2→4→8...）"
+  }
+}
