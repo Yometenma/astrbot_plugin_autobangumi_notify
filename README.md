@@ -9,6 +9,7 @@
 [![Version](https://img.shields.io/badge/version-1.1.1-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![AstrBot](https://img.shields.io/badge/AstrBot-%3E%3D4.27.2-orange.svg)](https://github.com/AstrBotDevs/AstrBot)
+[![AutoBangumi](https://img.shields.io/badge/AutoBangumi-required-red.svg)](https://github.com/Pueriz/AutoBangumi)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 
 [功能](#功能) · [快速开始](#快速开始) · [配置](#配置) · [事件类型](#事件类型) · [排障](#常见问题) · [架构](#架构)
@@ -16,6 +17,8 @@
 </div>
 
 ---
+
+> **前置依赖**：本插件是 [AstrBot](https://github.com/AstrBotDevs/AstrBot) 的插件，需要配合 [AutoBangumi](https://github.com/Pueriz/AutoBangumi) 使用。请确保已部署并配置好这两个项目。
 
 ## 功能
 
