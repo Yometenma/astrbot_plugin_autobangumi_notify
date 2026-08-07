@@ -44,19 +44,19 @@
   },
   "dedup_window_seconds": {
     "description": "去重时间窗口（秒）",
-    "type": "number",
+    "type": "int",
     "default": 300,
     "hint": "默认 300 秒（5 分钟）。在此窗口内相同内容只推送一次"
   },
   "max_retries": {
     "description": "消息发送最大重试次数",
-    "type": "number",
+    "type": "int",
     "default": 3,
     "hint": "发送失败后的重试次数，使用指数退避策略（每次延迟翻倍）"
   },
   "retry_delay_seconds": {
     "description": "重试基础延迟（秒）",
-    "type": "number",
+    "type": "float",
     "default": 2.0,
     "hint": "首次重试等待 2 秒，之后每次翻倍（2→4→8...）"
   }
