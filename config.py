@@ -64,8 +64,6 @@ class PluginConfig:
         # ---- 推送目标 ----
         self.targets: list[dict] = self._parse_targets(raw)
 
-        # ---- 旧版兼容 ----
-        self.legacy_target_qq: str = str(raw.get("target_qq", "")).strip()
 
     @staticmethod
     def _parse_targets(raw: dict) -> list[dict]:
@@ -90,10 +88,7 @@ class PluginConfig:
         """打印配置摘要日志。"""
         targets_desc = ", ".join(
             f"{t['type']}:{t['id']}" for t in self.targets
-        ) if self.targets else (
-            f"旧版 target_qq={self.legacy_target_qq}"
-            if self.legacy_target_qq else "无"
-        )
+        ) if self.targets else "无（请配置 targets）"
         logger.info(
             "配置摘要 | "
             f"platform={self.platform_id} | "

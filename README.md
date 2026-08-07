@@ -31,7 +31,6 @@
 | 🔄 自动重试 | 发送失败指数退避重试，不丢通知 |
 | 🖼️ 海报贴图 | 自动附带番剧海报 |
 | ⚙️ 全 WebUI 配置 | 所有配置在 AstrBot 面板修改，无需改代码 |
-| 🔙 旧版兼容 | `target_qq` 自动迁移到新版多目标配置 |
 
 ---
 
@@ -68,7 +67,6 @@
 
 `platform` 可选，默认 `aiocqhttp`。支持的平台 ID：`aiocqhttp` / `qqofficial` / `telegram` / `gewechat` / `wecom` / `feishu` / `dingtalk` / `discord`
 
-**简单方式（单个好友）**：直接填 `target_qq` 为你的 QQ 号即可。
 
 ### 3. 配置 AutoBangumi
 
@@ -162,7 +160,6 @@ flowchart TB
 | 配置项 | 类型 | 默认值 | 说明 |
 |--------|------|--------|------|
 | `targets` | list | `[]` | 推送目标列表，格式：`[{"type":"friend\|group","id":"QQ号或群号"}]` |
-| `target_qq` | string | 空 | **旧版**：单个好友 QQ 号 |
 | `platform_id` | string | `aiocqhttp` | 消息平台 ID |
 | `use_llm` | bool | `true` | 是否用 LLM 转述 |
 | `webhook_path` | string | `/api/autobangumi/notify` | Webhook 路径 |
@@ -205,7 +202,7 @@ flowchart TB
 
 ### 收不到消息
 
-1. 检查 `targets` 或 `target_qq` 是否填写正确
+1. 检查 `targets` 是否填写正确
 2. 检查 AstrBot 端口 `6185` 是否对 AutoBangumi 可达
 3. 查看 AstrBot 日志：`docker logs astrbot | grep -i autobangumi`
 4. 确认插件在 WebUI 插件列表中已启用

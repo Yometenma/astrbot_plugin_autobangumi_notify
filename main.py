@@ -12,7 +12,6 @@ AutoBangumi 通知转发插件
     - 内容去重（指纹 + 时间窗口）
     - 发送失败重试（指数退避）
     - LLM 以机器人自身人格转述（不绑定固定人设）
-    - 向后兼容旧版配置（target_qq 自动迁移）
 
 作者：yometenma
 版本：1.1.1
@@ -46,7 +45,7 @@ class AutoBangumiNotifyPlugin(Star):
         super().__init__(context)
         self.cfg = PluginConfig(config)  # 已验证的配置对象
 
-        # ---- 推送目标（兼容旧 target_qq） ----
+        # ---- 推送目标 ----
         self.targets: list[Target] = self._build_targets()
 
         # ---- 延迟初始化的组件 ----
@@ -78,7 +77,7 @@ class AutoBangumiNotifyPlugin(Star):
     # ==================== 目标解析 ====================
 
     def _build_targets(self) -> list[Target]:
-        """从已校验的配置构建 Target 列表，兼容旧版 target_qq。"""
+        """从已校验的配置构建 Target 列表。"""
         targets = [
             Target(
                 target_type=t["type"],
@@ -87,16 +86,6 @@ class AutoBangumiNotifyPlugin(Star):
             )
             for t in self.cfg.targets
         ]
-        if not targets and self.cfg.legacy_target_qq:
-            self.logger.info(
-                f"检测到旧版 target_qq={self.cfg.legacy_target_qq}，"
-                "已自动迁移到 targets"
-            )
-            targets.append(Target(
-                target_type="friend",
-                target_id=self.cfg.legacy_target_qq,
-                platform_id=self.cfg.platform_id,
-            ))
         return targets
 
     # ==================== Webhook 处理 ====================

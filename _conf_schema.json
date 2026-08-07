@@ -1,16 +1,10 @@
 {
   "targets": {
-    "description": "推送目标列表（推荐，配置后忽略 target_qq）",
+    "description": "推送目标列表（必填）",
     "type": "list",
     "default": [],
     "hint": "每项格式: {\"type\": \"friend|group\", \"id\": \"会话ID\", \"platform\": \"平台ID(可选)\"}。示例: [{\"type\":\"friend\",\"id\":\"QQ号\"},{\"type\":\"group\",\"id\":\"telegram_chat_id\",\"platform\":\"telegram\"}]。platform 默认 aiocqhttp，可选: telegram/gewechat/wecom/feishu/dingtalk/discord 等",
     "obvious_hint": true
-  },
-  "target_qq": {
-    "description": "接收通知的 QQ 用户 ID（旧版配置，建议用 targets 代替）",
-    "type": "string",
-    "default": "",
-    "hint": "填写后自动转为 friend 类型目标。如果同时配置了 targets，此项会被忽略"
   },
   "platform_id": {
     "description": "消息平台 ID",
