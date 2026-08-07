@@ -30,7 +30,7 @@ from .llm_rewriter import rewrite_with_llm
 from .message_sender import Target, send_to_targets
 from .dedup import DedupCache
 
-__version__ = "1.1.1"
+__version__ = "1.1.2"
 
 
 @register(
