@@ -1,6 +1,16 @@
 name: astrbot_plugin_autobangumi_notify
-desc: 接收 AutoBangumi 的 Webhook 通知，通过 LLM 以机器人人设转述后推送到指定会话（好友/群聊）。支持多事件类型识别、多目标推送、内容去重和发送重试。
+display_name: AutoBangumi 通知转发
+short_desc: 接收 AutoBangumi Webhook，以机器人人格转述后推送到 QQ
+desc: 接收 AutoBangumi 的 Webhook 通知，通过 LLM 以 AstrBot 自身人格转述后推送到指定会话（好友/群聊）。支持 6 种事件类型识别、多目标推送、内容去重和发送重试。
 version: 1.1.1
 author: yometenma
 repo: https://github.com/Yometenma/astrbot_plugin_autobangumi_notify
+astrbot_version: ">=4.27.2"
+support_platforms:
+  - aiocqhttp
+tags:
+  - 通知
+  - 追番
+  - webhook
+  - AutoBangumi
 category: 三方集成
