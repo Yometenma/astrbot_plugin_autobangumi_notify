@@ -80,7 +80,11 @@ class AutoBangumiNotifyPlugin(Star):
     def _build_targets(self) -> list[Target]:
         """从已校验的配置构建 Target 列表，兼容旧版 target_qq。"""
         targets = [
-            Target(target_type=t["type"], target_id=t["id"])
+            Target(
+                target_type=t["type"],
+                target_id=t["id"],
+                platform_id=t.get("platform", self.cfg.platform_id),
+            )
             for t in self.cfg.targets
         ]
         if not targets and self.cfg.legacy_target_qq:
@@ -91,6 +95,7 @@ class AutoBangumiNotifyPlugin(Star):
             targets.append(Target(
                 target_type="friend",
                 target_id=self.cfg.legacy_target_qq,
+                platform_id=self.cfg.platform_id,
             ))
         return targets
 
@@ -167,7 +172,6 @@ class AutoBangumiNotifyPlugin(Star):
         result = await send_to_targets(
             message_chain=message_chain,
             targets=self.targets,
-            platform_id=self.cfg.platform_id,
             context=self.context,
             max_retries=self.cfg.max_retries,
             retry_delay_seconds=self.cfg.retry_delay_seconds,

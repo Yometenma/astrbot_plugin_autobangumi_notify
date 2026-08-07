@@ -3,7 +3,7 @@
     "description": "推送目标列表（推荐，配置后忽略 target_qq）",
     "type": "list",
     "default": [],
-    "hint": "每项格式: {\"type\": \"friend|group\", \"id\": \"QQ号或群号\"}。示例: [{\"type\":\"friend\",\"id\":\"3453259714\"},{\"type\":\"group\",\"id\":\"123456789\"}]",
+    "hint": "每项格式: {\"type\": \"friend|group\", \"id\": \"会话ID\", \"platform\": \"平台ID(可选)\"}。示例: [{\"type\":\"friend\",\"id\":\"QQ号\"},{\"type\":\"group\",\"id\":\"telegram_chat_id\",\"platform\":\"telegram\"}]。platform 默认 aiocqhttp，可选: telegram/gewechat/wecom/feishu/dingtalk/discord 等",
     "obvious_hint": true
   },
   "target_qq": {
@@ -16,7 +16,7 @@
     "description": "消息平台 ID",
     "type": "string",
     "default": "aiocqhttp",
-    "hint": "NapCat/OneBot 为 aiocqhttp，其它平台按实际填写"
+    "hint": "默认平台 ID。每个 target 可单独覆盖此值。NapCat/OneBot: aiocqhttp，QQ官方: qqofficial，Telegram: telegram，微信: gewechat，企微: wecom，飞书: feishu，钉钉: dingtalk，Discord: discord 等"
   },
   "use_llm": {
     "description": "是否使用 LLM 转述通知",

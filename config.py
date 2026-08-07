@@ -79,7 +79,11 @@ class PluginConfig:
                 t_type = str(item.get("type", "friend"))
                 t_id = str(item.get("id", ""))
                 if t_id:
-                    result.append({"type": t_type, "id": t_id})
+                    result.append({
+                        "type": t_type,
+                        "id": t_id,
+                        "platform": item.get("platform"),
+                    })
         return result
 
     def log_summary(self) -> None:

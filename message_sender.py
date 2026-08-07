@@ -7,7 +7,7 @@ message_sender.py
     支持发送失败后的指数退避重试。
 
 作者：yometenma
-版本：1.1.1
+版本：1.1.2
 """
 
 import asyncio
@@ -17,12 +17,23 @@ from typing import Any, List, Optional
 
 logger = logging.getLogger(__name__)
 
+# AstrBot 标准 MessageType 值
+MESSAGE_TYPE_FRIEND = "FriendMessage"
+MESSAGE_TYPE_GROUP = "GroupMessage"
+
+# 用户输入的简写 → AstrBot MessageType 映射
+_TYPE_MAP = {
+    "friend": MESSAGE_TYPE_FRIEND,
+    "group": MESSAGE_TYPE_GROUP,
+}
+
 
 @dataclass
 class Target:
     """一个推送目标。"""
-    target_type: str   # "friend" 或 "group"
-    target_id: str     # QQ 号 或 群号
+    target_type: str          # "friend" 或 "group"
+    target_id: str            # 会话 ID（QQ 号 / 群号 / Telegram chat_id 等）
+    platform_id: str = "aiocqhttp"  # AstrBot 平台标识符
 
 
 @dataclass
@@ -48,7 +59,6 @@ class BatchSendResult:
 async def send_to_targets(
     message_chain: list,
     targets: List[Target],
-    platform_id: str,
     context: Any,
     max_retries: int = 3,
     retry_delay_seconds: float = 2.0,
@@ -73,7 +83,7 @@ async def send_to_targets(
     # 并发向所有目标发送
     tasks = [
         _send_to_single_target(
-            message_chain, target, platform_id, context,
+            message_chain, target, context,
             max_retries, retry_delay_seconds,
         )
         for target in targets
@@ -94,13 +104,13 @@ async def send_to_targets(
 async def _send_to_single_target(
     message_chain: list,
     target: Target,
-    platform_id: str,
     context: Any,
     max_retries: int,
     base_delay: float,
 ) -> SendResult:
     """向单个目标发送，带指数退避重试。"""
-    session = f"{platform_id}:{target.target_type}:{target.target_id}"
+    msg_type = _TYPE_MAP.get(target.target_type, target.target_type)
+    session = f"{target.platform_id}:{msg_type}:{target.target_id}"
 
     for attempt in range(1, max_retries + 1):
         try:

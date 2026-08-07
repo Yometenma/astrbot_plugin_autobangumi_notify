@@ -25,7 +25,7 @@
 | 功能 | 说明 |
 |------|------|
 | 🎯 多事件识别 | 自动区分新番更新、下载、重命名、错误等 6 种事件，每种生成不同摘要 |
-| 👥 多目标推送 | 同时推送给多个好友和群聊，自由组合 |
+| 👥 多目标 & 多平台 | 同时推送给多个好友和群聊，支持 QQ / Telegram / 微信 / 企微 / 飞书 / 钉钉 / Discord |
 | 🎭 人格转述 | 以 AstrBot 自身人格转述通知（不绑定固定人设），也可自定义转述风格 |
 | 🚫 智能去重 | 同一事件在时间窗口内只推一次，避免重复轰炸 |
 | 🔄 自动重试 | 发送失败指数退避重试，不丢通知 |
@@ -55,14 +55,18 @@
 
 打开 AstrBot WebUI → 插件设置 → `astrbot_plugin_autobangumi_notify`：
 
-**推荐方式（多目标）**：
+**推荐方式（多目标 & 多平台）**：
 
 ```json
 "targets": [
-  {"type": "friend", "id": "你的QQ号"},
-  {"type": "group", "id": "你的群号"}
+  {"type": "friend", "id": "QQ号"},
+  {"type": "group",  "id": "QQ群号"},
+  {"type": "group",  "id": "telegram_chat_id", "platform": "telegram"},
+  {"type": "friend", "id": "wxid",              "platform": "gewechat"}
 ]
 ```
+
+`platform` 可选，默认 `aiocqhttp`。支持的平台 ID：`aiocqhttp` / `qqofficial` / `telegram` / `gewechat` / `wecom` / `feishu` / `dingtalk` / `discord`
 
 **简单方式（单个好友）**：直接填 `target_qq` 为你的 QQ 号即可。
 
