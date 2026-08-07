@@ -6,7 +6,7 @@
 
 让 AutoBangumi 的新番更新通知，以你机器人的口吻推送到 QQ
 
-[![Version](https://img.shields.io/badge/version-1.1.2-blue.svg)]()
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![AstrBot](https://img.shields.io/badge/AstrBot-%3E%3D4.27.2-orange.svg)](https://github.com/AstrBotDevs/AstrBot)
 [![AutoBangumi](https://img.shields.io/badge/AutoBangumi-required-red.svg)](https://github.com/EstrellaXD/Auto_Bangumi)
