@@ -6,7 +6,7 @@ config.py
 让 main.py 拿到的是已经过验证的可靠配置对象。
 
 作者：yometenma
-版本：1.1.1
+版本：1.2.0
 """
 
 from typing import Optional

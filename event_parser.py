@@ -19,7 +19,7 @@ AutoBangumi Webhook 事件解析模块。
     {{event}}         事件类型标识
 
 作者：yometenma
-版本：1.1.1
+版本：1.2.0
 """
 
 import hashlib

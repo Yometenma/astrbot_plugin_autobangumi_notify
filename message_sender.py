@@ -7,7 +7,7 @@ message_sender.py
     支持发送失败后的指数退避重试。
 
 作者：yometenma
-版本：1.1.2
+版本：1.2.0
 """
 
 import asyncio

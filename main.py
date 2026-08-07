@@ -14,7 +14,7 @@ AutoBangumi 通知转发插件
     - LLM 以机器人自身人格转述（不绑定固定人设）
 
 作者：yometenma
-版本：1.1.1
+版本：1.2.0
 """
 
 import json
