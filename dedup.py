@@ -20,8 +20,8 @@ dedup.py
 import time
 import logging
 
-from constants import DEFAULT_MAX_CACHE_SIZE
-from event_parser import ParsedEvent
+from .constants import DEFAULT_MAX_CACHE_SIZE
+from .event_parser import ParsedEvent
 
 logger = logging.getLogger(__name__)
 

@@ -16,7 +16,7 @@ LLM 转述模块。
 import logging
 from typing import Any, Optional
 
-from constants import DEFAULT_TASK_INSTRUCTION
+from .constants import DEFAULT_TASK_INSTRUCTION
 
 logger = logging.getLogger(__name__)
 

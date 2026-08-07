@@ -13,7 +13,7 @@ from typing import Optional
 
 from astrbot.api import logger
 
-from constants import (
+from .constants import (
     DEFAULT_PLATFORM_ID,
     DEFAULT_WEBHOOK_PATH,
     DEFAULT_USE_LLM,

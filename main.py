@@ -23,12 +23,12 @@ import json
 from astrbot.api.message_components import Plain, Image
 from astrbot.api.star import Context, Star, register
 
-from config import PluginConfig
-from event_parser import ParsedEvent, parse_event, build_notification_text
-from exceptions import ConfigurationError, EventParseError
-from llm_rewriter import rewrite_with_llm
-from message_sender import Target, send_to_targets
-from dedup import DedupCache
+from .config import PluginConfig
+from .event_parser import ParsedEvent, parse_event, build_notification_text
+from .exceptions import ConfigurationError, EventParseError
+from .llm_rewriter import rewrite_with_llm
+from .message_sender import Target, send_to_targets
+from .dedup import DedupCache
 
 __version__ = "1.1.1"
 
