@@ -242,6 +242,7 @@ flowchart TB
 | 插件 | 说明 |
 |------|------|
 | [AutoBangumi](https://github.com/EstrellaXD/Auto_Bangumi) | 全自动追番工具，本插件的数据来源 |
+| [astrbot_plugin_autobangumi_command](https://github.com/Yometenma/astrbot_plugin_autobangumi_command) | **遥控管理**——聊天命令搜索、订阅、删除番剧 |
 | [NapCat](https://github.com/NapNeko/NapCatQQ) | QQ 机器人框架，与 AstrBot 搭配使用 |
 
 ---
