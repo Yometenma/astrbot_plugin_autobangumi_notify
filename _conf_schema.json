@@ -30,6 +30,12 @@
     "default": "",
     "hint": "告诉 LLM 如何转述通知，如「请用简洁的口吻转述」「请用卖萌的语气转述」。留空则 LLM 以 AstrBot 自身人格自由转述。注意：不要在此填写人格定义，人格由 AstrBot 自身配置决定"
   },
+  "webhook_token": {
+    "description": "Webhook 认证 Token（可选）",
+    "type": "string",
+    "default": "",
+    "hint": "设置后只有携带正确 Token 的请求才会被处理。留空则不校验。AutoBangumi 侧在通知渠道中设置自定义请求头 X-Webhook-Token"
+  },
   "enable_dedup": {
     "description": "是否开启通知去重",
     "type": "bool",

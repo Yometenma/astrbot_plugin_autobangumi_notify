@@ -92,6 +92,15 @@ class AutoBangumiNotifyPlugin(Star):
 
     async def _handle_webhook(self, request):
         """接收 AutoBangumi 的 Webhook POST 请求。"""
+        # token 校验
+        if self.cfg.webhook_token:
+            req_token = (
+                request.headers.get("X-Webhook-Token", "")
+                or request.query.get("token", "")
+            )
+            if req_token != self.cfg.webhook_token:
+                self.logger.warning("Webhook token 不匹配，拒绝")
+                return {"status": "error", "message": "unauthorized"}
         try:
             raw = await request.json()
             self.logger.info(

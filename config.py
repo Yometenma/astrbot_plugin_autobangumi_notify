@@ -40,6 +40,9 @@ class PluginConfig:
         self.webhook_path: str = str(
             raw.get("webhook_path", DEFAULT_WEBHOOK_PATH)
         )
+        self.webhook_token: str = str(
+            raw.get("webhook_token", "")
+        ).strip()
 
         # ---- LLM 转述指令 ----
         task = str(raw.get("llm_system_prompt", "")).strip()

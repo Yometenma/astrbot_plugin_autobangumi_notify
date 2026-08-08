@@ -31,6 +31,7 @@
 | 🔄 自动重试 | 发送失败指数退避重试，不丢通知 |
 | 🖼️ 海报贴图 | 自动附带番剧海报 |
 | ⚙️ 全 WebUI 配置 | 所有配置在 AstrBot 面板修改，无需改代码 |
+| 🔐 Token 认证 | 可选 Webhook Token 校验，防止未授权请求 |
 
 ---
 
@@ -67,7 +68,9 @@ git clone https://github.com/Yometenma/astrbot_plugin_autobangumi_notify.git
 
 在 AutoBangumi WebUI → 设置 → 通知 → 添加 Webhook 渠道：
 
+- **自定义请求头**（如果启用了 Token）：添加 `X-Webhook-Token: <你的Token>`
 - **URL**：`http://<你的服务器IP>:6185/api/autobangumi/notify`
+- **自定义请求头**（如果启用了 Token）：添加 
 - **模板（推荐）**：
   ```json
   {
@@ -158,6 +161,7 @@ flowchart TB
 | `platform_id` | string | `aiocqhttp` | 消息平台 ID |
 | `use_llm` | bool | `true` | 是否用 LLM 转述 |
 | `webhook_path` | string | `/api/autobangumi/notify` | Webhook 路径 |
+| `webhook_token` | string | 空 | 可选 Token，设置后需在 AutoBangumi 侧配请求头 `X-Webhook-Token` |
 
 ### LLM 转述
 
