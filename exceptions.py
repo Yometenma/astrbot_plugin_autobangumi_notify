@@ -6,7 +6,7 @@ AutoBangumi 通知插件自定义异常层级。
 让调用方能按语义捕获特定异常类型，而不是笼统地用 except Exception。
 
 作者：yometenma
-版本：1.2.0
+版本：1.3.0
 """
 
 

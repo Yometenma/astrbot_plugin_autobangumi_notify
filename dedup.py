@@ -14,7 +14,7 @@ dedup.py
     4. 若存在且未过期 → 重复，返回 True
 
 作者：yometenma
-版本：1.2.0
+版本：1.3.0
 """
 
 import time

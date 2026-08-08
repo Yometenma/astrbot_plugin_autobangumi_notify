@@ -14,7 +14,7 @@ AutoBangumi 通知转发插件
     - LLM 以机器人自身人格转述（不绑定固定人设）
 
 作者：yometenma
-版本：1.2.0
+版本：1.3.0
 """
 
 import json
@@ -29,7 +29,7 @@ from .llm_rewriter import rewrite_with_llm
 from .message_sender import Target, send_to_targets
 from .dedup import DedupCache
 
-__version__ = "1.2.0"
+__version__ = "1.3.0"
 
 
 @register(
