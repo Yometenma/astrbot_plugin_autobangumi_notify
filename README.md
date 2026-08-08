@@ -12,6 +12,8 @@
 [![AutoBangumi](https://img.shields.io/badge/AutoBangumi-required-red.svg)](https://github.com/EstrellaXD/Auto_Bangumi)
 [![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](https://www.python.org/)
 
+![Moe Counter](https://moe-counter.glitch.me/get/@Yometenma_astrbot_plugin_autobangumi_notify)
+
 [功能](#功能) · [快速开始](#快速开始) · [配置](#配置) · [事件类型](#事件类型) · [排障](#常见问题) · [架构](#架构)
 
 </div>
